@@ -1,141 +1,271 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#090b0e">
-<title>TACTICAL TEAM — Official</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap');
-:root{--bg:#090b0e;--surface:#101419;--surface2:#151b21;--line:#29313a;--text:#f0f2f4;--muted:#9ba5af;--accent:#c4d0da;--max:1180px}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:92px}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Manrope,Arial,sans-serif;line-height:1.6}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 50% -15%,#24303b 0,transparent 48%),linear-gradient(90deg,transparent 49.9%,rgba(255,255,255,.018) 50%,transparent 50.1%)}
-a{color:inherit;text-decoration:none}
-button,a{-webkit-tap-highlight-color:transparent}
-.wrap{width:min(var(--max),calc(100% - 44px));margin:auto}
-header{position:sticky;top:0;z-index:20;background:rgba(9,11,14,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.09)}
-.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{display:flex;align-items:center;gap:13px;min-width:0}
-.mark{width:42px;height:42px;border:1px solid #7e8b97;display:grid;place-items:center;background:linear-gradient(145deg,#27313b,#11161b);font:600 17px Oswald,sans-serif;letter-spacing:-1px;position:relative}
-.mark:after{content:"";position:absolute;right:-4px;bottom:-4px;width:9px;height:9px;background:#dce4eb;border:2px solid var(--bg)}
-.brand-title{font:600 20px Oswald,sans-serif;letter-spacing:2.2px;line-height:1.1}
-.brand-sub{display:block;margin-top:5px;font-size:9px;letter-spacing:3px;color:#87939e}
-nav{display:flex;align-items:center;gap:27px;font-size:12px;color:#b2bbc4;font-weight:700}
-nav a{transition:color .2s}
-nav a:hover{color:#fff}
-.nav-cta{border:1px solid #66727d;padding:10px 14px;color:#f3f5f7}
-.menu-btn{display:none;color:white;background:transparent;border:1px solid var(--line);padding:8px 12px;font-size:20px}
-.hero{min-height:570px;display:flex;align-items:center;position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.08)}
-.hero:after{content:"TACTICAL";position:absolute;left:50%;top:49%;transform:translate(-50%,-50%);font:700 clamp(100px,22vw,290px)/.9 Oswald,sans-serif;letter-spacing:-.025em;color:rgba(255,255,255,.025);white-space:nowrap;pointer-events:none}
-.hero-inner{position:relative;z-index:1;padding:84px 0 76px}
-.eyebrow{display:flex;align-items:center;gap:12px;color:#b2bec8;text-transform:uppercase;letter-spacing:3.3px;font-size:10px;font-weight:800}
-.eyebrow:before{content:"";width:30px;height:1px;background:#b2bec8}
-h1{font:600 clamp(56px,10vw,112px)/.91 Oswald,sans-serif;letter-spacing:1px;margin:26px 0 22px;text-transform:uppercase}
-h1 span{display:block;color:transparent;-webkit-text-stroke:1px #d3dbe2}
-.hero-copy{max-width:560px;color:#a9b2bb;font-size:15px;line-height:1.9}
-.hero-bottom{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:32px}
-.button{display:inline-flex;align-items:center;gap:16px;background:#e5ebef;color:#0a0c0f;padding:14px 19px;font-size:12px;font-weight:800;transition:transform .2s,background .2s}
-.button:hover{transform:translateY(-2px);background:#fff}
-.text-link{font-size:12px;color:#d0d7dd;font-weight:700}
-.text-link span{margin-left:8px}
-.hero-meta{display:flex;gap:28px;margin-top:60px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);max-width:640px}
-.meta-item{font-size:10px;letter-spacing:1.4px;color:#7f8a94;text-transform:uppercase}
-.meta-item strong{display:block;color:#e0e5e9;font-size:12px;letter-spacing:1px;margin-bottom:4px}
-section{padding:84px 0;border-bottom:1px solid rgba(255,255,255,.07)}
-.section-top{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:32px}
-.section-no{font:500 12px Oswald,sans-serif;color:#84919c;letter-spacing:2px}
-h2{font:500 clamp(32px,5vw,48px)/1.05 Oswald,sans-serif;letter-spacing:.5px;margin:9px 0 0;text-transform:uppercase}
-.section-desc{max-width:430px;color:var(--muted);font-size:12px;line-height:1.9;margin:0}
-.about-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
-.about-card{background:var(--surface);padding:27px;min-height:160px}
-.about-card .num{font:500 12px Oswald,sans-serif;color:#84919c;letter-spacing:2px}
-.about-card h3{font-size:16px;margin:22px 0 7px}
-.about-card p{font-size:12px;color:var(--muted);margin:0;line-height:1.8}
-.members{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
-.member{background:linear-gradient(140deg,#151a20,#0f1216);border:1px solid #252d35;padding:15px 14px;display:flex;align-items:center;gap:12px;min-width:0}
-.member:first-child{border-color:#8a969f;background:linear-gradient(140deg,#26313b,#11161b)}
-.member-badge{width:32px;height:32px;flex:0 0 32px;border:1px solid #39434d;display:grid;place-items:center;font:500 13px Oswald,sans-serif;color:#c6d0d8}
-.member-name{font-size:11px;font-weight:800;overflow-wrap:anywhere}
-.member-role{font-size:9px;color:#87929d;margin-top:3px}
-.music-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.track{display:grid;grid-template-columns:45px minmax(0,1fr);gap:15px;padding:19px;background:var(--surface);border:1px solid #252d35;min-width:0}
-.track-icon{width:45px;height:45px;border:1px solid #3a444e;display:grid;place-items:center;color:#dce3e9;font:500 18px Oswald,sans-serif}
-.track h3{font-size:13px;margin:1px 0 3px}
-.track small{color:#89949e;font-size:10px}
-.track audio{display:block;width:100%;height:34px;margin-top:12px;filter:grayscale(1);opacity:.9}
-.works-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.work{min-height:150px;padding:22px;border:1px solid #29313a;background:linear-gradient(145deg,#171e25,#0f1216);display:flex;flex-direction:column;justify-content:space-between}
-.work-mark{font:500 28px Oswald,sans-serif;color:#6f7c87}
-.work h3{font-size:14px;margin:15px 0 4px}
-.work p{font-size:11px;color:var(--muted);margin:0}
-.contact-panel{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:30px;border:1px solid #39434c;background:linear-gradient(115deg,#192129,#0f1216)}
-.contact-panel h3{font:500 25px Oswald,sans-serif;margin:0 0 5px}
-.contact-panel p{color:var(--muted);font-size:12px;margin:0}
-footer{padding:25px 0;color:#87929c;font-size:10px;letter-spacing:.5px}
-.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-@media(max-width:850px){nav{gap:14px}.members{grid-template-columns:repeat(3,minmax(0,1fr))}.about-grid{grid-template-columns:1fr 1fr}.about-card:first-child{grid-column:span 2}}
-@media(max-width:650px){.wrap{width:calc(100% - 30px)}.nav{height:68px}.brand-title{font-size:17px}nav{display:none;position:absolute;top:68px;left:15px;right:15px;padding:20px;background:#101419;border:1px solid var(--line);align-items:stretch;flex-direction:column;gap:19px}nav.open{display:flex}.menu-btn{display:block}.nav-cta{display:inline-block}.hero{min-height:0}.hero-inner{padding:70px 0 44px}.hero-copy{font-size:13px}.hero-meta{gap:16px;margin-top:42px}.meta-item{font-size:8px}.meta-item strong{font-size:10px}.section-top{align-items:start;flex-direction:column;gap:12px}section{padding:60px 0}.members{grid-template-columns:repeat(2,minmax(0,1fr))}.music-list{grid-template-columns:1fr}.works-grid{grid-template-columns:1fr}.work{min-height:120px}.contact-panel{align-items:start;flex-direction:column;padding:23px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0b">
+  <title>TACTICAL TEAM — Official</title>
+  <meta name="description" content="TACTICAL TEAM — команда, участники, работы и музыка.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #09090a;
+      --panel: #111113;
+      --panel2: #171719;
+      --red: #e32636;
+      --red2: #ff3547;
+      --text: #f4f4f5;
+      --muted: #929297;
+      --line: rgba(255,255,255,.10);
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: Manrope, Arial, sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    ::selection { background: var(--red); color: white; }
+    .noise { position: fixed; inset: 0; pointer-events: none; opacity: .035; z-index: 10; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E"); }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: auto; }
+    .topline { height: 3px; background: linear-gradient(90deg, var(--red), #7b0d17 55%, transparent); }
+    header { position: sticky; top: 0; z-index: 9; background: rgba(9,9,10,.88); backdrop-filter: blur(18px); border-bottom: 1px solid var(--line); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-family: "Barlow Condensed", sans-serif; font-size: 24px; font-weight: 900; letter-spacing: 1.4px; }
+    .brand-mark { width: 40px; height: 40px; display: grid; place-items: center; background: var(--red); color: white; font-size: 17px; clip-path: polygon(0 0,100% 0,100% 72%,72% 100%,0 100%); }
+    .brand span:last-child { color: var(--red2); }
+    .navlinks { display: flex; align-items: center; gap: 26px; color: #c3c3c7; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+    .navlinks a:hover { color: white; }
+    .navlinks .nav-cta { color: white; background: var(--red); padding: 12px 16px; }
+    .menu-btn { display: none; background: transparent; color: white; border: 1px solid var(--line); padding: 9px 12px; }
+    .hero { position: relative; min-height: 620px; display: flex; align-items: center; overflow: hidden; border-bottom: 1px solid var(--line); }
+    .hero:before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 76% 48%, rgba(227,38,54,.22), transparent 35%), linear-gradient(110deg, #09090a 20%, rgba(9,9,10,.78) 60%, #09090a 100%); }
+    .hero:after { content: "TT"; position: absolute; right: max(-10px, calc((100vw - var(--max))/2 - 10px)); top: 42px; font-family: "Barlow Condensed", sans-serif; font-weight: 900; font-size: clamp(250px, 38vw, 510px); line-height: .85; letter-spacing: -25px; color: rgba(255,255,255,.025); -webkit-text-stroke: 2px rgba(227,38,54,.23); pointer-events: none; }
+    .hero-inner { position: relative; z-index: 1; padding: 95px 0 100px; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--red2); font-size: 11px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; }
+    .eyebrow:before { content: ""; width: 28px; height: 2px; background: var(--red); }
+    h1 { max-width: 800px; margin: 22px 0 18px; font-family: "Barlow Condensed", sans-serif; font-size: clamp(66px, 10vw, 126px); font-weight: 900; letter-spacing: -2px; line-height: .82; text-transform: uppercase; }
+    h1 .red { color: var(--red); }
+    .hero p { max-width: 520px; color: #b7b7bc; line-height: 1.8; font-size: 15px; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 21px; font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; transition: .2s ease; }
+    .btn-primary { background: var(--red); color: white; border: 1px solid var(--red); }
+    .btn-primary:hover { background: var(--red2); transform: translateY(-2px); }
+    .btn-ghost { border: 1px solid rgba(255,255,255,.2); color: white; }
+    .btn-ghost:hover { border-color: var(--red); }
+    .hero-bottom { display: flex; gap: 34px; margin-top: 58px; }
+    .stat { border-left: 2px solid var(--red); padding-left: 12px; }
+    .stat strong { display: block; font-family: "Barlow Condensed", sans-serif; font-size: 25px; }
+    .stat small { color: var(--muted); font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase; }
+    section { padding: 88px 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 32px; }
+    .section-kicker { color: var(--red); font-size: 10px; letter-spacing: 3px; font-weight: 900; text-transform: uppercase; }
+    h2 { margin: 8px 0 0; font-family: "Barlow Condensed", sans-serif; font-size: clamp(42px, 6vw, 66px); line-height: .95; text-transform: uppercase; }
+    .section-note { max-width: 360px; color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .about-card { min-height: 220px; padding: 30px; background: linear-gradient(135deg, var(--panel2), var(--panel)); border: 1px solid var(--line); position: relative; overflow: hidden; }
+    .about-card:after { content: ""; position: absolute; width: 90px; height: 4px; right: 0; top: 0; background: var(--red); }
+    .about-card .num { font-family: "Barlow Condensed", sans-serif; font-size: 46px; font-weight: 900; color: var(--red); }
+    .about-card h3 { margin: 10px 0; font-size: 17px; text-transform: uppercase; }
+    .about-card p { margin: 0; max-width: 460px; color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .members { background: #0d0d0f; border-block: 1px solid var(--line); }
+    .member-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .member { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 13px 14px; background: var(--panel); border: 1px solid var(--line); transition: .2s; }
+    .member:hover { border-color: rgba(227,38,54,.7); transform: translateY(-2px); }
+    .member .initial { flex: 0 0 34px; height: 34px; display: grid; place-items: center; background: rgba(227,38,54,.13); color: var(--red2); font-size: 11px; font-weight: 900; }
+    .member .name { font-size: 12px; font-weight: 800; overflow-wrap: anywhere; }
+    .member.lead { border-color: rgba(227,38,54,.6); background: linear-gradient(110deg, rgba(227,38,54,.13), var(--panel)); }
+    .member.lead .name:after { content: " • LEAD"; color: var(--red2); font-size: 9px; letter-spacing: .8px; }
+    .music-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .track { display: flex; align-items: center; gap: 16px; padding: 18px; background: var(--panel); border: 1px solid var(--line); }
+    .track-icon { width: 46px; height: 46px; flex: 0 0 46px; display: grid; place-items: center; background: var(--red); font-size: 17px; }
+    .track-info { flex: 1; min-width: 0; }
+    .track-info strong { display: block; font-size: 13px; }
+    .track-info small { display: block; color: var(--muted); margin-top: 5px; font-size: 11px; }
+    audio { width: 100%; height: 34px; margin-top: 10px; accent-color: var(--red); }
+    .works { background: #0d0d0f; border-block: 1px solid var(--line); }
+    .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .work-card { min-height: 210px; position: relative; display: flex; flex-direction: column; justify-content: end; padding: 24px; overflow: hidden; background: linear-gradient(145deg, #211014, #111113 62%); border: 1px solid var(--line); }
+    .work-card:before { content: ""; position: absolute; width: 160px; height: 160px; right: -35px; top: -40px; border: 1px solid rgba(227,38,54,.28); transform: rotate(35deg); }
+    .work-card:after { content: ""; position: absolute; right: 18px; top: 14px; width: 42px; height: 3px; background: var(--red); }
+    .work-card .tag { color: var(--red2); font-size: 10px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; }
+    .work-card h3 { position: relative; z-index: 1; margin: 9px 0 6px; font-family: "Barlow Condensed", sans-serif; font-size: 29px; text-transform: uppercase; }
+    .work-card p { position: relative; z-index: 1; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .contact-box { padding: clamp(26px, 5vw, 54px); display: flex; align-items: center; justify-content: space-between; gap: 24px; background: linear-gradient(110deg, #5e1019, #1b0c0f 62%, #111113); border: 1px solid rgba(227,38,54,.4); }
+    .contact-box h2 { max-width: 600px; }
+    .contact-box p { color: #d0bfc1; font-size: 13px; line-height: 1.7; }
+    footer { padding: 28px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .footer-brand { color: white; font-weight: 900; letter-spacing: 1.5px; }
+    .footer-brand span { color: var(--red); }
+    @media (max-width: 900px) {
+      .member-grid { grid-template-columns: repeat(3, 1fr); }
+      .work-grid { grid-template-columns: repeat(2, 1fr); }
+      .navlinks { gap: 15px; }
+      .hero:after { right: -30px; }
+    }
+    @media (max-width: 650px) {
+      .wrap { width: min(var(--max), calc(100% - 28px)); }
+      .nav { min-height: 66px; }
+      .menu-btn { display: block; }
+      .navlinks { display: none; position: absolute; top: 66px; left: 0; right: 0; padding: 18px 20px 22px; background: #0c0c0e; border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; }
+      .navlinks.open { display: flex; }
+      .navlinks a { padding: 9px 0; }
+      .navlinks .nav-cta { padding: 13px; text-align: center; }
+      .hero { min-height: 570px; }
+      .hero-inner { padding: 78px 0; }
+      .hero:after { top: 75px; right: -25px; font-size: 260px; }
+      h1 { font-size: clamp(62px, 17vw, 92px); }
+      .hero p { font-size: 13px; }
+      .hero-bottom { gap: 18px; margin-top: 40px; }
+      .stat strong { font-size: 21px; }
+      section { padding: 64px 0; }
+      .section-head { display: block; }
+      .section-note { margin-top: 14px; }
+      .about-grid, .music-grid { grid-template-columns: 1fr; }
+      .about-card { min-height: auto; padding: 24px; }
+      .member-grid { grid-template-columns: repeat(2, 1fr); gap: 7px; }
+      .member { padding: 10px 8px; gap: 8px; }
+      .member .initial { flex-basis: 30px; height: 30px; }
+      .member .name { font-size: 10px; }
+      .work-grid { grid-template-columns: 1fr; }
+      .work-card { min-height: 170px; }
+      .contact-box { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *:before, *:after { transition: none !important; } }
+  </style>
 </head>
 <body>
-<header><div class="wrap nav">
-<a class="brand" href="#top" aria-label="TACTICAL TEAM">
-<span class="mark">TT</span><span class="brand-title">TACTICAL TEAM<span class="brand-sub">OFFICIAL COMMUNITY</span></span>
-</a>
-<nav id="nav"><a href="#about">О КОМАНДЕ</a><a href="#members">УЧАСТНИКИ</a><a href="#music">МУЗЫКА</a><a href="#works">РАБОТЫ</a><a class="nav-cta" href="#contact">СВЯЗЬ ↗</a></nav>
-<button class="menu-btn" id="menuBtn" aria-label="Открыть меню">☰</button>
-</div></header>
-<main id="top">
-<section class="hero"><div class="wrap hero-inner">
-<div class="eyebrow">Независимое сообщество · 2026</div>
-<h1>TACTICAL <span>TEAM</span></h1>
-<p class="hero-copy">Люди, музыка и работы команды — собраны в одном месте. Добро пожаловать на официальную страницу TACTICAL TEAM.</p>
-<div class="hero-bottom"><a class="button" href="#members">ЗНАКОМИТЬСЯ С КОМАНДОЙ <span>↘</span></a><a class="text-link" href="#music">СЛУШАТЬ ТРЕКИ <span>↗</span></a></div>
-<div class="hero-meta"><div class="meta-item"><strong>COMMUNITY</strong>Команда</div><div class="meta-item"><strong>MUSIC</strong>Треки</div><div class="meta-item"><strong>CREATIVE</strong>Работы и эдиты</div></div>
-</div></section>
-<section id="about"><div class="wrap">
-<div class="section-top"><div><div class="section-no">01 / О НАС</div><h2>Больше, чем команда</h2></div><p class="section-desc">TACTICAL TEAM объединяет участников, авторскую музыку и творческие работы. Это место, где можно познакомиться с командой и её материалами.</p></div>
-<div class="about-grid">
-<article class="about-card"><div class="num">01 — TEAM</div><h3>Люди и сообщество</h3><p>Главный участник и команда — в одном списке, без лишнего шума.</p></article>
-<article class="about-card"><div class="num">02 — SOUND</div><h3>Музыкальная полка</h3><p>Треки Чудного можно слушать прямо на странице.</p></article>
-<article class="about-card"><div class="num">03 — WORKS</div><h3>Творческие работы</h3><p>Отдельный раздел для монтажей, эдитов и новых публикаций.</p></article>
-</div>
-</div></section>
-<section id="members"><div class="wrap">
-<div class="section-top"><div><div class="section-no">02 / УЧАСТНИКИ</div><h2>Личный состав</h2></div><p class="section-desc">chudnoy — главный. Остальные участники идут по алфавиту.</p></div>
-<div class="members" id="memberGrid"></div>
-</div></section>
-<section id="music"><div class="wrap">
-<div class="section-top"><div><div class="section-no">03 / MUSIC</div><h2>Музыкальный раздел</h2></div><p class="section-desc">Треки Чудного. Плеер появится у каждого трека; если файл не играет, нужно сверить его имя в папке music.</p></div>
-<div class="music-list" id="musicList"></div>
-</div></section>
-<section id="works"><div class="wrap">
-<div class="section-top"><div><div class="section-no">04 / CREATIVE</div><h2>Работы команды</h2></div><p class="section-desc">Раздел подготовлен для ваших публикаций. Позже сюда можно добавить реальные ссылки на видео и эдиты.</p></div>
-<div class="works-grid">
-<article class="work"><div class="work-mark">01</div><div><h3>Эдиты и монтажи</h3><p>Видеоработы участников команды.</p></div></article>
-<article class="work"><div class="work-mark">02</div><div><h3>Музыкальные релизы</h3><p>Авторские треки и новые публикации.</p></div></article>
-<article class="work"><div class="work-mark">03</div><div><h3>Материалы команды</h3><p>Место для будущих проектов.</p></div></article>
-</div>
-</div></section>
-<section id="contact"><div class="wrap">
-<div class="section-top"><div><div class="section-no">05 / CONTACT</div><h2>На связи</h2></div><p class="section-desc">По вопросам и для связи с командой переходи в Telegram.</p></div>
-<div class="contact-panel"><div><h3>TACTICAL TEAM</h3><p>Контакт: artur_otg</p></div><a class="button" href="https://t.me/BELARUSIAN_MUSICIANS" target="_blank" rel="noopener noreferrer">ОТКРЫТЬ TELEGRAM ↗</a></div>
-</div></section>
+<div class="noise"></div>
+<div class="topline"></div>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="TACTICAL TEAM — главная">
+      <span class="brand-mark">TT</span><span>TACTICAL <span>TEAM</span></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navlinks">МЕНЮ ☰</button>
+    <nav class="navlinks" id="navlinks">
+      <a href="#about">О команде</a>
+      <a href="#members">Участники</a>
+      <a href="#music">Музыка</a>
+      <a href="#works">Работы</a>
+      <a class="nav-cta" href="#contact">Связаться ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="wrap hero-inner">
+      <div class="eyebrow">Independent team · Official page</div>
+      <h1>TACTICAL<br><span class="red">TEAM</span></h1>
+      <p>Своя команда. Свой стиль. Свой путь. Здесь собраны участники, музыка и работы TACTICAL TEAM.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#about">Открыть сайт <span>↘</span></a>
+        <a class="btn btn-ghost" href="https://t.me/BELARUSIAN_MUSICIANS" target="_blank" rel="noopener">Наш Telegram ↗</a>
+      </div>
+      <div class="hero-bottom">
+        <div class="stat"><strong>TACTICAL</strong><small>Наше имя</small></div>
+        <div class="stat"><strong>ONE TEAM</strong><small>Общий стиль</small></div>
+        <div class="stat"><strong>NO LIMITS</strong><small>Свой путь</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="section-kicker">01 / About</div><h2>О команде</h2></div>
+        <p class="section-note">TACTICAL TEAM — пространство для участников, творчества и собственных проектов.</p>
+      </div>
+      <div class="about-grid">
+        <article class="about-card"><div class="num">01</div><h3>Один состав</h3><p>Участники команды — каждый со своим характером, вкладом и направлением.</p></article>
+        <article class="about-card"><div class="num">02</div><h3>Свои работы</h3><p>Музыка, эдиты и другие материалы команды собраны в одном месте.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="members" id="members">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="section-kicker">02 / Roster</div><h2>Участники</h2></div>
+        <p class="section-note">Главный участник — chudnoy. Остальные имена представлены единым списком.</p>
+      </div>
+      <div class="member-grid" id="memberGrid"></div>
+    </div>
+  </section>
+
+  <section id="music">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="section-kicker">03 / Audio</div><h2>Музыка</h2></div>
+        <p class="section-note">Треки Чудного. Две проблемные песни убраны из списка.</p>
+      </div>
+      <div class="music-grid">
+        <article class="track"><div class="track-icon">▶</div><div class="track-info"><strong>Команда БПЛА</strong><small>Автор: Чудной</small><audio controls preload="none"><source src="music/bpla.mp3" type="audio/mpeg">Ваш браузер не поддерживает аудио.</audio></div></article>
+        <article class="track"><div class="track-icon">▶</div><div class="track-info"><strong>Холодный нож</strong><small>Автор: Чудной</small><audio controls preload="none"><source src="music/holodny-nozh.mp3" type="audio/mpeg">Ваш браузер не поддерживает аудио.</audio></div></article>
+        <article class="track"><div class="track-icon">▶</div><div class="track-info"><strong>Ходящие мертвецы</strong><small>Автор: Чудной</small><audio controls preload="none"><source src="music/mertvetsy.mp3" type="audio/mpeg">Ваш браузер не поддерживает аудио.</audio></div></article>
+        <article class="track"><div class="track-icon">▶</div><div class="track-info"><strong>Золотой экран</strong><small>Автор: Чудной</small><audio controls preload="none"><source src="music/zolotoy-ekran.mp3" type="audio/mpeg">Ваш браузер не поддерживает аудио.</audio></div></article>
+        <article class="track"><div class="track-icon">▶</div><div class="track-info"><strong>Волокнёная стрела</strong><small>Автор: Чудной</small><audio controls preload="none"><source src="music/strela.mp3" type="audio/mpeg">Ваш браузер не поддерживает аудио.</audio></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="works" id="works">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="section-kicker">04 / Projects</div><h2>Работы команды</h2></div>
+        <p class="section-note">Раздел для эдитов, видео и новых проектов. Добавим реальные материалы, когда они будут готовы.</p>
+      </div>
+      <div class="work-grid">
+        <article class="work-card"><span class="tag">01 / Edits</span><h3>Эдиты</h3><p>Видео и монтаж участников команды.</p></article>
+        <article class="work-card"><span class="tag">02 / Audio</span><h3>Музыкальные работы</h3><p>Треки и авторские материалы.</p></article>
+        <article class="work-card"><span class="tag">03 / Media</span><h3>Проекты</h3><p>Новые работы TACTICAL TEAM.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-box">
+        <div><div class="section-kicker">05 / Contact</div><h2>Есть вопрос?<br>Свяжись с командой.</h2><p>Контакт: artur_otg</p></div>
+        <a class="btn btn-primary" href="https://t.me/BELARUSIAN_MUSICIANS" target="_blank" rel="noopener">Открыть Telegram ↗</a>
+      </div>
+    </div>
+  </section>
 </main>
-<footer><div class="wrap footer-inner"><span>© 2026 TACTICAL TEAM</span><a href="#top">ВВЕРХ ↑</a></div></footer>
+
+<footer><div class="wrap footer-inner"><div class="footer-brand">TACTICAL <span>TEAM</span></div><div>© <span id="year"></span> TACTICAL TEAM · Official page</div><div>Built for the team.</div></div></footer>
+
 <script>
-const members=["chudnoy","ара","архангел","ars1k","BERKUT editor","бодя","corte11z","FLY","hauzy1","katatoks","казак","llmar krays","МЕТЕЛЬ","militara","monolitzov","Ockolok","пермик","phantom_editor","Rubezh","simon0","турист_037","тяпа","VORON","ZOV","zovchik16"];
-const mainName="chudnoy";
-const rest=members.filter(n=>n.toLowerCase()!==mainName).sort((a,b)=>a.localeCompare(b,"ru",{sensitivity:"base"}));
-function addMember(name,main=false){const el=document.createElement("article");el.className="member";const badge=document.createElement("span");badge.className="member-badge";badge.textContent=main?"★":name.trim().slice(0,2).toUpperCase();const box=document.createElement("div");const title=document.createElement("div");title.className="member-name";title.textContent=name;const role=document.createElement("div");role.className="member-role";role.textContent=main?"ГЛАВНЫЙ":"УЧАСТНИК";box.append(title,role);el.append(badge,box);document.getElementById("memberGrid").append(el)}
-addMember(mainName,true);rest.forEach(n=>addMember(n));
-const tracks=[["Команда БПЛА","bpla.mp3"],["Холодный нож","holodny-nozh.mp3"],["Ходящие мертвецы","mertvetsy.mp3"],["Невинная душа","nevinnaya-dusha.mp3"],["Золотой экран","zolotoy-ekran.mp3"],["Три тропы","tri-tropy.mp3"],["Волокнёная стрела","strela.mp3"]];
-tracks.forEach(([title,file],i)=>{const card=document.createElement("article");card.className="track";const icon=document.createElement("div");icon.className="track-icon";icon.textContent=String(i+1).padStart(2,"0");const info=document.createElement("div");const h=document.createElement("h3");h.textContent=title;const small=document.createElement("small");small.textContent="Автор: Чудной";const audio=document.createElement("audio");audio.controls=true;audio.preload="none";const source=document.createElement("source");source.src="music/"+file;source.type="audio/mpeg";audio.append(source);info.append(h,small,audio);card.append(icon,info);document.getElementById("musicList").append(card)});
-document.getElementById("menuBtn").addEventListener("click",()=>document.getElementById("nav").classList.toggle("open"));
-document.querySelectorAll("#nav a").forEach(a=>a.addEventListener("click",()=>document.getElementById("nav").classList.remove("open")));
+  const members = [
+    "chudnoy", "ара", "архангел", "ars1k", "BERKUT editor", "бодя",
+    "corte11z", "FLY", "hauzy1", "katatoks", "казак", "llmar krays",
+    "МЕТЕЛЬ", "militara", "monolitzov", "Ockolok", "пермяк",
+    "phantom_editor", "Rubezh", "simon0", "турист_037", "тяпа",
+    "VORON", "ZOV", "zovchik16", "кокос"
+  ];
+  const grid = document.getElementById("memberGrid");
+  members.forEach((name, index) => {
+    const card = document.createElement("div");
+    card.className = "member" + (name === "chudnoy" ? " lead" : "");
+    const initial = name.replace(/[^a-zа-яё0-9]/gi, "").slice(0, 2).toUpperCase() || "TT";
+    card.innerHTML = `<span class="initial">${initial}</span><span class="name"></span>`;
+    card.querySelector(".name").textContent = name;
+    grid.appendChild(card);
+  });
+  document.getElementById("year").textContent = new Date().getFullYear();
+  const menuBtn = document.getElementById("menuBtn");
+  const navlinks = document.getElementById("navlinks");
+  menuBtn.addEventListener("click", () => {
+    const open = navlinks.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", String(open));
+  });
+  navlinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+    navlinks.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+  }));
 </script>
 </body>
-                                                                                                                                                                                                                                                                           </html>
+  </html>
