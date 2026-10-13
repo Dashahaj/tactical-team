@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<meta name="description" content="TACTICAL TEAM — команда авторов, видеомонтажёров и музыкантов.">
+<title>TACTICAL TEAM | Official</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 75px;
+}
+
+body {
+    background: #080808;
+    color: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+}
+
+header {
+    min-height: 350px;
+    padding: 75px 20px 65px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background:
+        radial-gradient(ellipse at center, #351010 0%, #170707 45%, #080808 80%);
+    border-bottom: 2px solid #d91e32;
+}
+
+.overline {
+    color: #e32b40;
+    font-size: 12px;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: clamp(38px, 10vw, 76px);
+    line-height: 1.15;
+    letter-spacing: 3px;
+    margin: 18px 0;
+    overflow-wrap: anywhere;
+}
+
+h1 span {
+    color: #ed2638;
+}
+
+.subtitle {
+    color: #aaa;
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+    padding: 16px 10px;
+    background: rgba(12, 12, 12, 0.97);
+    border-bottom: 1px solid #292929;
+}
+
+nav a {
+    font-size: 13px;
+    text-decoration: none;
+    color: #ccc;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #ff3549;
+}
+
+section {
+    max-width: 1050px;
+    margin: auto;
+    padding: 55px 20px;
+}
+
+.section-label {
+    color: #e32b40;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: clamp(25px, 5vw, 35px);
+    margin-bottom: 25px;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 3px;
+    background: #ed2638;
+    margin-top: 12px;
+}
+
+.panel {
+    background: linear-gradient(135deg, #171717, #101010);
+    border: 1px solid #303030;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.about-text {
+    color: #c7c7c7;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.stat {
+    text-align: center;
+    background: #131313;
+    border: 1px solid #292929;
+    border-radius: 10px;
+    padding: 17px 5px;
+}
+
+.stat strong {
+    display: block;
+    color: #ed2638;
+    font-size: 25px;
+}
+
+.stat span {
+    font-size: 11px;
+    color: #aaa;
+}
+
+.music-list,
+.work-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
+    gap: 15px;
+}
+
+.track {
+    padding: 18px;
+    background: #141414;
+    border: 1px solid #303030;
+    border-radius: 12px;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.track:hover,
+.work-card:hover {
+    border-color: #a91c2c;
+    transform: translateY(-3px);
+}
+
+.track-top {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 13px;
+}
+
+.track-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #4a1018, #1b080b);
+    border: 1px solid #70202b;
+    font-size: 23px;
+}
+
+.track h3 {
+    font-size: 16px;
+    overflow-wrap: anywhere;
+}
+
+.author {
+    color: #ed5260;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.track audio {
+    width: 100%;
+    height: 40px;
+    margin-top: 7px;
+}
+
+.track-note {
+    color: #888;
+    font-size: 11px;
+    margin-top: 7px;
+}
+
+.work-card {
+    background: #141414;
+    border: 1px solid #303030;
+    border-radius: 12px;
+    padding: 22px;
+    transition: 0.2s;
+}
+
+.work-icon {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.work-card p {
+    color: #aaa;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.members {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 145px), 1fr));
+    gap: 10px;
+}
+
+.member {
+    position: relative;
+    background: #131313;
+    border: 1px solid #2d2d2d;
+    border-radius: 8px;
+    padding: 15px 9px;
+    text-align: center;
+    overflow-wrap: anywhere;
+    font-size: 13px;
+}
+
+.leader {
+    border-color: #ed2638;
+    background: linear-gradient(135deg, #321015, #151010);
+}
+
+.badge {
+    display: block;
+    color: #ff4658;
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.contact-box {
+    text-align: center;
+}
+
+.contact-box p {
+    color: #bbb;
+    margin-bottom: 18px;
+}
+
+.button {
+    display: inline-block;
+    background: #d91e32;
+    border: 1px solid #f23a4e;
+    border-radius: 7px;
+    padding: 12px 22px;
+    margin: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+
+.button:hover {
+    background: #a91526;
+}
+
+footer {
+    border-top: 1px solid #292929;
+    padding: 28px 15px;
+    text-align: center;
+    color: #777;
+    font-size: 12px;
+}
+
+footer strong {
+    color: #ed2638;
+}
+
+@media (max-width: 480px) {
+    header {
+        min-height: 290px;
+        padding: 55px 12px;
+    }
+
+    nav {
+        gap: 9px 14px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    section {
+        padding: 40px 15px;
+    }
+
+    .panel {
+        padding: 18px;
+    }
+
+    .stats {
+        gap: 7px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <p class="overline">INDEPENDENT CREATOR TEAM</p>
+    <h1>TACTICAL <span>TEAM</span></h1>
+    <p class="subtitle">VIDEO EDITING · MUSIC · COMMUNITY</p>
+</header>
+
+<nav>
+    <a href="#about">О команде</a>
+    <a href="#music">Музыка</a>
+    <a href="#works">Работы</a>
+    <a href="#members">Участники</a>
+    <a href="#contact">Контакты</a>
+</nav>
+
+<section id="about">
+    <p class="section-label">01 / ABOUT</p>
+    <h2>О команде</h2>
+
+    <div class="panel">
+        <p class="about-text">
+            <strong>TACTICAL TEAM</strong> — команда авторов,
+            объединённых интересом к видеомонтажу, музыке
+            и созданию собственного контента.
+        </p>
+
+        <p class="about-text" style="margin-top:12px">
+            Здесь собраны музыкальные проекты, видеоработы
+            и участники нашей команды.
+        </p>
+    </div>
+
+    <div class="stats">
+        <div class="stat">
+            <strong>27</strong>
+            <span>УЧАСТНИКОВ</span>
+        </div>
+
+        <div class="stat">
+            <strong>09</strong>
+            <span>МУЗЫКАЛЬНЫХ ТРЕКОВ</span>
+        </div>
+
+        <div class="stat">
+            <strong>01</strong>
+            <span>КОМАНДА</span>
+        </div>
+    </div>
+</section>
+
+<section id="music">
+    <p class="section-label">02 / MUSIC</p>
+    <h2>Музыкальная библиотека</h2>
+
+    <div class="music-list">
+
+        <article class="track">
+            <div class="track-top">
+                <div class="track-icon">♫</div>
+                <div>
+                    <h3>Кривичи</h3>
+                    <p class="author">Автор: Чудной</p>
+                </div>
+            </div>
+            <audio controls preload="none">
+                <source src="music/krivichi.mp3" type="audio/mpeg">
+                Ваш браузер не поддерживает аудиоплеер.
+            </audio>
+            <p class="track-note">Кривичи · chudnoy</p>
+        </article>
+
+        <article class="track">
+            <div class="track-top">
+                <div class="track-icon">♫</div>
+                <div>
+                    <h3>Команда БПЛА</h3>
+                    <p class="author">Автор: Чудной</p>
+                </div>
+            </div>
+            <audio controls preload="none">
+                <source src="music/komanda-bpla.mp3" type="audio/mpeg">
+                Ваш браузер не поддерживает аудиоплеер.
+            </audio>
+            <p class="track-note">Команда БПЛА · chudnoy</p>
+        </article>
+
+        <article class="track">
+            <div class="track-top">
+                <div class="track-icon">♫</div>
+                <div>
+                    <h3>Золотой экран</h3>
+                    <p class="author">Автор: Чудной</p>
+                </div>
+            </div>
+            <audio controls preload="none">
+                <source src="music/zolotoy-ekran.mp3" type="audio/mpeg">
+                Ваш браузер не поддерживает аудиоплеер.
+            </audio>
+            <p class="track-note">Золотой экран · chudnoy</p>
+        </article>
+
+        <article class="track">
+            <div class="track-top">
+                <div class="track-icon">♫</div>
+                <div>
+                    <h3>Железная стрекоза</h3>
+                    <p class="author">Автор: Чудной</p>
+                </div>
+            </div>
+            <audio controls preload="none">
+                <source src="music/zheleznaya-strekoza.mp3" type="audio/mpeg">
+                Ваш браузер не поддерживает аудиоплеер.
+            </audio>
+            <p class="track-note">Железная стрекоза · chudnoy</p>
+        </article>
+
+        <article class="track">
+            <div class="track-top">
+                <div class="track-icon">♫</div>
+                <div>
+                    <h3>Ходящие мертвецы</h3>
+                    <p class="author">Автор: Чудной</p>
+                </div>
+            </div>
+            <audio controls preload="none">
+                <source src="music/khodyashchie-mertvetsy.mp3" type="audio/mpeg">
+                Ваш браузер не поддерживает аудиоплеер.
+            </audio>
+            <p class="track-note">Ходящие мертвецы · chudnoy</p>
+        </article>
+
+        <article class="track">
+            <div class="track-top">
+                <div class="track-icon">♫</div>
+                <div>
+                    <h3>Волокнёная стрела</h3>
+                    <p class="author">Автор: Чудной</p>
+                </div>
+            </div>
+            <audio controls preload="none">
+                <source src="music/voloknyonaya-strela.mp3" type="audio/mpeg">
+                Ваш браузер не поддерживает аудиоплеер.
+            </audio>
+            <p class="track-note">Волокнёная стрела · chudnoy</p>
+        </article>
+
+        <article class="track">
+            <div class="track-top">
+                <div class="track-icon">♫</div>
+                <div>
+                    <h3>Три тропы</h3>
+                    <p class="author">Автор: Чудной</p>
+                </div>
+            </div>
+            <audio controls preload="none">
+                <source src="music/tri-tropy.mp3" type="audio/mpeg">
+                Ваш браузер не поддерживает аудиоплеер.
+            </audio>
+            <p class="track-note">Три тропы · chudnoy</p>
+        </article>
+
+        <article class="track">
+            <div class="track-top">
+                <div class="track-icon">♫</div>
+                <div>
+                    <h3>Невинная душа</h3>
+                    <p class="author">Автор: Чудной</p>
+                </div>
+            </div>
+            <audio controls preload="none">
+                <source src="music/nevinnaya-dusha.mp3" type="audio/mpeg">
+                Ваш браузер не поддерживает аудиоплеер.
+            </audio>
+            <p class="track-note">Невинная душа · chudnoy</p>
+        </article>
+
+        <article class="track">
+            <div class="track-top">
+                <div class="track-icon">♫</div>
+                <div>
+                    <h3>Холодный нож</h3>
+                    <p class="author">Автор: Чудной</p>
+                </div>
+            </div>
+            <audio controls preload="none">
+                <source src="music/kholodnyy-nozh.mp3" type="audio/mpeg">
+                Ваш браузер не поддерживает аудиоплеер.
+            </audio>
+            <p class="track-note">Холодный нож · chudnoy</p>
+        </article>
+
+    </div>
+
+    <p style="color:#888;font-size:12px;margin-top:18px">
+        Примечание: аудиоплееры заработают после загрузки MP3-файлов
+        в папку music на хостинге сайта.
+    </p>
+</section>
+
+<section id="works">
+    <p class="section-label">03 / PORTFOLIO</p>
+    <h2>Наши работы</h2>
+
+    <div class="work-list">
+        <article class="work-card">
+            <div class="work-icon">🎬</div>
+            <h3>Видеомонтажи</h3>
+            <p>
+                Авторские монтажи участников команды.
+                Ссылки на публикации добавим сюда.
+            </p>
+        </article>
+
+        <article class="work-card">
+            <div class="work-icon">🎵</div>
+            <h3>Музыкальные проекты</h3>
+            <p>
+                Девять треков Чудного собраны
+                в музыкальном разделе выше.
+            </p>
+        </article>
+    </div>
+</section>
+
+<section id="members">
+    <p class="section-label">04 / TEAM</p>
+    <h2>Участники команды</h2>
+
+    <div class="members">
+        <div class="member leader">
+            <span class="badge">ГЛАВНЫЙ</span>
+            chudnoy
+        </div>
+        <div class="member">ара</div>
+        <div class="member">архангел</div>
+        <div class="member">ars1k</div>
+        <div class="member">artur_otg</div>
+        <div class="member">BERKUT editor</div>
+        <div class="member">бодя</div>
+        <div class="member">VORON</div>
+        <div class="member">FLY</div>
+        <div class="member">hauzy1</div>
+        <div class="member">казак</div>
+        <div class="member">katatoks</div>
+        <div class="member">kokos</div>
+        <div class="member">llmar krays</div>
+        <div class="member">МЕТЕЛЬ</div>
+        <div class="member">militara</div>
+        <div class="member">monolitzov</div>
+        <div class="member">Ockolok</div>
+        <div class="member">phantom_editor</div>
+        <div class="member">пермяк</div>
+        <div class="member">Rubezh</div>
+        <div class="member">simon0</div>
+        <div class="member">тяпа</div>
+        <div class="member">turist_037</div>
+        <div class="member">ZOV</div>
+        <div class="member">zovchik16</div>
+        <div class="member">corte11z</div>
+    </div>
+</section>
+
+<section id="contact">
+    <p class="section-label">05 / CONTACT</p>
+    <h2>Связаться с нами</h2>
+
+    <div class="panel contact-box">
+        <p>
+            Следите за публикациями и музыкальными проектами команды.
+        </p>
+
+        <a class="button"
+           href="https://t.me/BELARUSIAN_MUSICIANS"
+           target="_blank"
+           rel="noopener noreferrer">
+            TELEGRAM
+        </a>
+    </div>
+</section>
+
+<footer>
+    <strong>TACTICAL TEAM</strong>
+    <p>Independent Creator Team · 2026</p>
+</footer>
+
+</body>
+  </html>
