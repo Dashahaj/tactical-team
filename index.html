@@ -3,154 +3,139 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0b0d10">
-<title>TACTICAL TEAM</title>
+<meta name="theme-color" content="#090b0e">
+<title>TACTICAL TEAM — Official</title>
 <style>
-:root{--bg:#0b0d10;--panel:#12161b;--panel2:#171d24;--text:#f1f4f7;--muted:#9aa5b1;--line:#2a333d;--accent:#d7e0e8}
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap');
+:root{--bg:#090b0e;--surface:#101419;--surface2:#151b21;--line:#29313a;--text:#f0f2f4;--muted:#9ba5af;--accent:#c4d0da;--max:1180px}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:radial-gradient(ellipse at top,#18212b 0,#0b0d10 48%);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Manrope,Arial,sans-serif;line-height:1.6}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 50% -15%,#24303b 0,transparent 48%),linear-gradient(90deg,transparent 49.9%,rgba(255,255,255,.018) 50%,transparent 50.1%)}
 a{color:inherit;text-decoration:none}
-.wrap{width:min(1100px,92%);margin:auto}
-header{position:sticky;top:0;z-index:10;background:rgba(11,13,16,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:2px}
-.logo-mark{width:42px;height:42px;display:grid;place-items:center;border:1px solid #7c8996;background:linear-gradient(145deg,#26313c,#0e1115);clip-path:polygon(15% 0,85% 0,100% 15%,100% 85%,85% 100%,15% 100%,0 85%,0 15%);font-size:15px;letter-spacing:-1px}
-.brand-name{font-size:17px;line-height:1.1}
-.brand-name span{display:block;color:var(--muted);font-size:10px;letter-spacing:4px;margin-top:5px}
-nav{display:flex;gap:22px;color:var(--muted);font-size:14px}
-nav a:hover,.text-link:hover{color:#fff}
-.menu-btn{display:none;background:none;color:white;border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:20px}
-.hero{padding:94px 0 74px;text-align:center;position:relative;overflow:hidden}
-.eyebrow{color:#aebbc8;text-transform:uppercase;letter-spacing:5px;font-size:11px}
-h1{font-size:clamp(42px,9vw,88px);line-height:.98;letter-spacing:clamp(2px,1vw,8px);margin:22px 0 18px;font-weight:900}
-h1 span{display:block;color:transparent;-webkit-text-stroke:1px #8f9ba8}
-.hero p{max-width:630px;margin:0 auto;color:var(--muted);font-size:17px}
-.pills{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:28px}
-.pill{border:1px solid var(--line);background:#11161b;padding:7px 12px;border-radius:999px;color:#c4ced7;font-size:12px}
-section{padding:64px 0;border-top:1px solid rgba(255,255,255,.06)}
-.section-head{margin-bottom:26px}
-.kicker{color:#8e9aa6;text-transform:uppercase;letter-spacing:3px;font-size:11px}
-h2{font-size:clamp(28px,5vw,42px);line-height:1.1;margin:8px 0 10px;letter-spacing:1px}
-.sub{color:var(--muted);margin:0;max-width:700px}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.card{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:16px;padding:20px;min-width:0}
-.card h3{font-size:17px;margin:0 0 4px}
-.card p{color:var(--muted);font-size:13px;margin:0}
-.member-card{display:flex;align-items:center;gap:12px}
-.avatar{width:38px;height:38px;flex:0 0 38px;border-radius:11px;display:grid;place-items:center;background:#202a34;border:1px solid #35414d;color:#dbe3ea;font-weight:800}
-.member-card h3{overflow-wrap:anywhere}
-.music-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.track{padding:17px;border:1px solid var(--line);background:rgba(18,22,27,.92);border-radius:14px;min-width:0}
-.track-top{display:flex;justify-content:space-between;align-items:start;gap:12px}
-.track h3{font-size:16px;margin:0 0 3px}
-.track small{color:var(--muted)}
-.track audio{width:100%;height:38px;margin-top:12px}
-.contact-box{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;background:linear-gradient(135deg,#1a222b,#11151a);border:1px solid var(--line);padding:24px;border-radius:16px}
-.btn{display:inline-flex;align-items:center;justify-content:center;background:#e7edf2;color:#0b0d10;font-weight:800;padding:12px 18px;border-radius:9px}
-.btn:hover{background:#fff}
-footer{padding:24px 0;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
-footer .wrap{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-@media(max-width:760px){nav{display:none;position:absolute;left:4%;right:4%;top:68px;padding:16px;background:#11161b;border:1px solid var(--line);border-radius:12px;flex-direction:column;gap:14px}nav.open{display:flex}.menu-btn{display:block}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.music-list{grid-template-columns:1fr}.hero{padding:72px 0 58px}}
-@media(max-width:450px){.grid{grid-template-columns:1fr}.brand-name{font-size:14px}.hero p{font-size:15px}}
+button,a{-webkit-tap-highlight-color:transparent}
+.wrap{width:min(var(--max),calc(100% - 44px));margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(9,11,14,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.09)}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:13px;min-width:0}
+.mark{width:42px;height:42px;border:1px solid #7e8b97;display:grid;place-items:center;background:linear-gradient(145deg,#27313b,#11161b);font:600 17px Oswald,sans-serif;letter-spacing:-1px;position:relative}
+.mark:after{content:"";position:absolute;right:-4px;bottom:-4px;width:9px;height:9px;background:#dce4eb;border:2px solid var(--bg)}
+.brand-title{font:600 20px Oswald,sans-serif;letter-spacing:2.2px;line-height:1.1}
+.brand-sub{display:block;margin-top:5px;font-size:9px;letter-spacing:3px;color:#87939e}
+nav{display:flex;align-items:center;gap:27px;font-size:12px;color:#b2bbc4;font-weight:700}
+nav a{transition:color .2s}
+nav a:hover{color:#fff}
+.nav-cta{border:1px solid #66727d;padding:10px 14px;color:#f3f5f7}
+.menu-btn{display:none;color:white;background:transparent;border:1px solid var(--line);padding:8px 12px;font-size:20px}
+.hero{min-height:570px;display:flex;align-items:center;position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.08)}
+.hero:after{content:"TACTICAL";position:absolute;left:50%;top:49%;transform:translate(-50%,-50%);font:700 clamp(100px,22vw,290px)/.9 Oswald,sans-serif;letter-spacing:-.025em;color:rgba(255,255,255,.025);white-space:nowrap;pointer-events:none}
+.hero-inner{position:relative;z-index:1;padding:84px 0 76px}
+.eyebrow{display:flex;align-items:center;gap:12px;color:#b2bec8;text-transform:uppercase;letter-spacing:3.3px;font-size:10px;font-weight:800}
+.eyebrow:before{content:"";width:30px;height:1px;background:#b2bec8}
+h1{font:600 clamp(56px,10vw,112px)/.91 Oswald,sans-serif;letter-spacing:1px;margin:26px 0 22px;text-transform:uppercase}
+h1 span{display:block;color:transparent;-webkit-text-stroke:1px #d3dbe2}
+.hero-copy{max-width:560px;color:#a9b2bb;font-size:15px;line-height:1.9}
+.hero-bottom{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:32px}
+.button{display:inline-flex;align-items:center;gap:16px;background:#e5ebef;color:#0a0c0f;padding:14px 19px;font-size:12px;font-weight:800;transition:transform .2s,background .2s}
+.button:hover{transform:translateY(-2px);background:#fff}
+.text-link{font-size:12px;color:#d0d7dd;font-weight:700}
+.text-link span{margin-left:8px}
+.hero-meta{display:flex;gap:28px;margin-top:60px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);max-width:640px}
+.meta-item{font-size:10px;letter-spacing:1.4px;color:#7f8a94;text-transform:uppercase}
+.meta-item strong{display:block;color:#e0e5e9;font-size:12px;letter-spacing:1px;margin-bottom:4px}
+section{padding:84px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.section-top{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:32px}
+.section-no{font:500 12px Oswald,sans-serif;color:#84919c;letter-spacing:2px}
+h2{font:500 clamp(32px,5vw,48px)/1.05 Oswald,sans-serif;letter-spacing:.5px;margin:9px 0 0;text-transform:uppercase}
+.section-desc{max-width:430px;color:var(--muted);font-size:12px;line-height:1.9;margin:0}
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.about-card{background:var(--surface);padding:27px;min-height:160px}
+.about-card .num{font:500 12px Oswald,sans-serif;color:#84919c;letter-spacing:2px}
+.about-card h3{font-size:16px;margin:22px 0 7px}
+.about-card p{font-size:12px;color:var(--muted);margin:0;line-height:1.8}
+.members{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.member{background:linear-gradient(140deg,#151a20,#0f1216);border:1px solid #252d35;padding:15px 14px;display:flex;align-items:center;gap:12px;min-width:0}
+.member:first-child{border-color:#8a969f;background:linear-gradient(140deg,#26313b,#11161b)}
+.member-badge{width:32px;height:32px;flex:0 0 32px;border:1px solid #39434d;display:grid;place-items:center;font:500 13px Oswald,sans-serif;color:#c6d0d8}
+.member-name{font-size:11px;font-weight:800;overflow-wrap:anywhere}
+.member-role{font-size:9px;color:#87929d;margin-top:3px}
+.music-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.track{display:grid;grid-template-columns:45px minmax(0,1fr);gap:15px;padding:19px;background:var(--surface);border:1px solid #252d35;min-width:0}
+.track-icon{width:45px;height:45px;border:1px solid #3a444e;display:grid;place-items:center;color:#dce3e9;font:500 18px Oswald,sans-serif}
+.track h3{font-size:13px;margin:1px 0 3px}
+.track small{color:#89949e;font-size:10px}
+.track audio{display:block;width:100%;height:34px;margin-top:12px;filter:grayscale(1);opacity:.9}
+.works-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.work{min-height:150px;padding:22px;border:1px solid #29313a;background:linear-gradient(145deg,#171e25,#0f1216);display:flex;flex-direction:column;justify-content:space-between}
+.work-mark{font:500 28px Oswald,sans-serif;color:#6f7c87}
+.work h3{font-size:14px;margin:15px 0 4px}
+.work p{font-size:11px;color:var(--muted);margin:0}
+.contact-panel{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:30px;border:1px solid #39434c;background:linear-gradient(115deg,#192129,#0f1216)}
+.contact-panel h3{font:500 25px Oswald,sans-serif;margin:0 0 5px}
+.contact-panel p{color:var(--muted);font-size:12px;margin:0}
+footer{padding:25px 0;color:#87929c;font-size:10px;letter-spacing:.5px}
+.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:850px){nav{gap:14px}.members{grid-template-columns:repeat(3,minmax(0,1fr))}.about-grid{grid-template-columns:1fr 1fr}.about-card:first-child{grid-column:span 2}}
+@media(max-width:650px){.wrap{width:calc(100% - 30px)}.nav{height:68px}.brand-title{font-size:17px}nav{display:none;position:absolute;top:68px;left:15px;right:15px;padding:20px;background:#101419;border:1px solid var(--line);align-items:stretch;flex-direction:column;gap:19px}nav.open{display:flex}.menu-btn{display:block}.nav-cta{display:inline-block}.hero{min-height:0}.hero-inner{padding:70px 0 44px}.hero-copy{font-size:13px}.hero-meta{gap:16px;margin-top:42px}.meta-item{font-size:8px}.meta-item strong{font-size:10px}.section-top{align-items:start;flex-direction:column;gap:12px}section{padding:60px 0}.members{grid-template-columns:repeat(2,minmax(0,1fr))}.music-list{grid-template-columns:1fr}.works-grid{grid-template-columns:1fr}.work{min-height:120px}.contact-panel{align-items:start;flex-direction:column;padding:23px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 </style>
 </head>
 <body>
-<header>
- <div class="wrap nav">
-  <a class="brand" href="#top" aria-label="TACTICAL TEAM — главная">
-   <span class="logo-mark" aria-hidden="true">TT</span>
-   <span class="brand-name">TACTICAL TEAM<span>COMMUNITY</span></span>
-  </a>
-  <nav id="nav">
-   <a href="#about">О команде</a><a href="#members">Участники</a><a href="#music">Музыка</a><a href="#works">Работы</a><a href="#contact">Контакты</a>
-  </nav>
-  <button class="menu-btn" id="menuBtn" aria-label="Открыть меню">☰</button>
- </div>
-</header>
+<header><div class="wrap nav">
+<a class="brand" href="#top" aria-label="TACTICAL TEAM">
+<span class="mark">TT</span><span class="brand-title">TACTICAL TEAM<span class="brand-sub">OFFICIAL COMMUNITY</span></span>
+</a>
+<nav id="nav"><a href="#about">О КОМАНДЕ</a><a href="#members">УЧАСТНИКИ</a><a href="#music">МУЗЫКА</a><a href="#works">РАБОТЫ</a><a class="nav-cta" href="#contact">СВЯЗЬ ↗</a></nav>
+<button class="menu-btn" id="menuBtn" aria-label="Открыть меню">☰</button>
+</div></header>
 <main id="top">
- <section class="hero" style="border-top:0">
-  <div class="wrap">
-   <div class="eyebrow">Independent team · Since 2026</div>
-   <h1>TACTICAL <span>TEAM</span></h1>
-   <p>Команда, участники, творчество и музыка — всё в одном месте.</p>
-   <div class="pills"><span class="pill">TEAM</span><span class="pill">MUSIC</span><span class="pill">EDITS</span><span class="pill">COMMUNITY</span></div>
-  </div>
- </section>
- <section id="about"><div class="wrap">
-  <div class="section-head"><div class="kicker">01 / About</div><h2>О команде</h2><p class="sub">TACTICAL TEAM — пространство участников, работ и музыки. Здесь собраны основные ссылки и материалы команды.</p></div>
-  <div class="grid">
-   <article class="card"><h3>Команда</h3><p>Участники и люди, которые создают общее движение.</p></article>
-   <article class="card"><h3>Творчество</h3><p>Музыка, монтажи и другие работы участников.</p></article>
-   <article class="card"><h3>Связь</h3><p>Связаться с командой можно через Telegram по ссылке ниже.</p></article>
-  </div>
- </div></section>
- <section id="members"><div class="wrap">
-  <div class="section-head"><div class="kicker">02 / Members</div><h2>Участники</h2><p class="sub">Главный — chudnoy. Остальные участники перечислены по алфавиту.</p></div>
-  <div class="grid" id="memberGrid"></div>
- </div></section>
- <section id="music"><div class="wrap">
-  <div class="section-head"><div class="kicker">03 / Music</div><h2>Музыка</h2><p class="sub">Треки Чудного. Если файл не запускается, проверь, что имя MP3 в папке music совпадает с путём в коде.</p></div>
-  <div class="music-list" id="musicList"></div>
- </div></section>
- <section id="works"><div class="wrap">
-  <div class="section-head"><div class="kicker">04 / Works</div><h2>Работы и монтажи</h2><p class="sub">Подборка работ команды. Раздел можно дополнить ссылками на видео и эдиты.</p></div>
-  <div class="grid">
-   <article class="card"><h3>Монтажи</h3><p>Эдиты и видеоработы участников.</p></article>
-   <article class="card"><h3>Музыкальные работы</h3><p>Авторские треки и релизы команды.</p></article>
-   <article class="card"><h3>Новые материалы</h3><p>Раздел готов для добавления новых публикаций.</p></article>
-  </div>
- </div></section>
- <section id="contact"><div class="wrap">
-  <div class="section-head"><div class="kicker">05 / Contact</div><h2>Контакты</h2><p class="sub">Чтобы связаться с командой, используй Telegram.</p></div>
-  <div class="contact-box"><div><h3 style="margin:0 0 5px">TACTICAL TEAM</h3><p style="margin:0;color:var(--muted)">Контакт: artur_otg</p></div><a class="btn" href="https://t.me/BELARUSIAN_MUSICIANS" target="_blank" rel="noopener noreferrer">Открыть Telegram ↗</a></div>
- </div></section>
+<section class="hero"><div class="wrap hero-inner">
+<div class="eyebrow">Независимое сообщество · 2026</div>
+<h1>TACTICAL <span>TEAM</span></h1>
+<p class="hero-copy">Люди, музыка и работы команды — собраны в одном месте. Добро пожаловать на официальную страницу TACTICAL TEAM.</p>
+<div class="hero-bottom"><a class="button" href="#members">ЗНАКОМИТЬСЯ С КОМАНДОЙ <span>↘</span></a><a class="text-link" href="#music">СЛУШАТЬ ТРЕКИ <span>↗</span></a></div>
+<div class="hero-meta"><div class="meta-item"><strong>COMMUNITY</strong>Команда</div><div class="meta-item"><strong>MUSIC</strong>Треки</div><div class="meta-item"><strong>CREATIVE</strong>Работы и эдиты</div></div>
+</div></section>
+<section id="about"><div class="wrap">
+<div class="section-top"><div><div class="section-no">01 / О НАС</div><h2>Больше, чем команда</h2></div><p class="section-desc">TACTICAL TEAM объединяет участников, авторскую музыку и творческие работы. Это место, где можно познакомиться с командой и её материалами.</p></div>
+<div class="about-grid">
+<article class="about-card"><div class="num">01 — TEAM</div><h3>Люди и сообщество</h3><p>Главный участник и команда — в одном списке, без лишнего шума.</p></article>
+<article class="about-card"><div class="num">02 — SOUND</div><h3>Музыкальная полка</h3><p>Треки Чудного можно слушать прямо на странице.</p></article>
+<article class="about-card"><div class="num">03 — WORKS</div><h3>Творческие работы</h3><p>Отдельный раздел для монтажей, эдитов и новых публикаций.</p></article>
+</div>
+</div></section>
+<section id="members"><div class="wrap">
+<div class="section-top"><div><div class="section-no">02 / УЧАСТНИКИ</div><h2>Личный состав</h2></div><p class="section-desc">chudnoy — главный. Остальные участники идут по алфавиту.</p></div>
+<div class="members" id="memberGrid"></div>
+</div></section>
+<section id="music"><div class="wrap">
+<div class="section-top"><div><div class="section-no">03 / MUSIC</div><h2>Музыкальный раздел</h2></div><p class="section-desc">Треки Чудного. Плеер появится у каждого трека; если файл не играет, нужно сверить его имя в папке music.</p></div>
+<div class="music-list" id="musicList"></div>
+</div></section>
+<section id="works"><div class="wrap">
+<div class="section-top"><div><div class="section-no">04 / CREATIVE</div><h2>Работы команды</h2></div><p class="section-desc">Раздел подготовлен для ваших публикаций. Позже сюда можно добавить реальные ссылки на видео и эдиты.</p></div>
+<div class="works-grid">
+<article class="work"><div class="work-mark">01</div><div><h3>Эдиты и монтажи</h3><p>Видеоработы участников команды.</p></div></article>
+<article class="work"><div class="work-mark">02</div><div><h3>Музыкальные релизы</h3><p>Авторские треки и новые публикации.</p></div></article>
+<article class="work"><div class="work-mark">03</div><div><h3>Материалы команды</h3><p>Место для будущих проектов.</p></div></article>
+</div>
+</div></section>
+<section id="contact"><div class="wrap">
+<div class="section-top"><div><div class="section-no">05 / CONTACT</div><h2>На связи</h2></div><p class="section-desc">По вопросам и для связи с командой переходи в Telegram.</p></div>
+<div class="contact-panel"><div><h3>TACTICAL TEAM</h3><p>Контакт: artur_otg</p></div><a class="button" href="https://t.me/BELARUSIAN_MUSICIANS" target="_blank" rel="noopener noreferrer">ОТКРЫТЬ TELEGRAM ↗</a></div>
+</div></section>
 </main>
-<footer><div class="wrap"><span>© 2026 TACTICAL TEAM</span><a href="#top">Наверх ↑</a></div></footer>
+<footer><div class="wrap footer-inner"><span>© 2026 TACTICAL TEAM</span><a href="#top">ВВЕРХ ↑</a></div></footer>
 <script>
-const members = [
- "ара","архангел","бодя","казак","кокос","пермяк","тяпа","турист_037",
- "ars1k","BERKUT editor","corte11z","FLY","hauzy1","katatoks","llmar krays",
- "militara","МЕТЕЛЬ","monolitzov","Ockolok","phantom_editor","Rubezh",
- "simon0","VORON","ZOV","zovchik16"
-];
-// Главный участник показывается отдельно первым; остальные — по алфавиту.
-const uniqueMembers = [...new Set(members)];
-uniqueMembers.sort((a,b)=>a.localeCompare(b,'ru',{sensitivity:'base'}));
-const memberGrid = document.getElementById('memberGrid');
-function memberCard(name, main=false){
- const el=document.createElement('article'); el.className='card member-card';
- const av=document.createElement('span'); av.className='avatar'; av.textContent=main?'★':name.trim().slice(0,2).toUpperCase();
- const box=document.createElement('div'); const h=document.createElement('h3'); h.textContent=name;
- const p=document.createElement('p'); p.textContent=main?'Главный команды':'Участник';
- box.append(h,p);el.append(av,box);return el;
-}
-memberGrid.append(memberCard('chudnoy',true));
-uniqueMembers.forEach(n=>memberGrid.append(memberCard(n)));
-const tracks = [
- ['Команда БПЛА','bpla.mp3'],
- ['Холодный нож','holodny-nozh.mp3'],
- ['Ходящие мертвецы','mertvetsy.mp3'],
- ['Невинная душа','nevinnaya-dusha.mp3'],
- ['Золотой экран','zolotoy-ekran.mp3'],
- ['Три тропы','tri-tropy.mp3'],
- ['Волокнёная стрела','strela.mp3']
- // «Железная стрекоза» намеренно удалена из списка.
-];
-const musicList=document.getElementById('musicList');
-tracks.forEach(([title,file])=>{
- const card=document.createElement('article');card.className='track';
- const top=document.createElement('div');top.className='track-top';
- const info=document.createElement('div');const h=document.createElement('h3');h.textContent=title;
- const small=document.createElement('small');small.textContent='Автор: Чудной';
- info.append(h,small);top.append(info);card.append(top);
- const audio=document.createElement('audio');audio.controls=true;audio.preload='none';
- const source=document.createElement('source');source.src='music/'+file;source.type='audio/mpeg';
- audio.append(source);audio.append('Ваш браузер не поддерживает аудио.');
- card.append(audio);musicList.append(card);
-});
-document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('nav').classList.toggle('open'));
-document.querySelectorAll('#nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
+const members=["chudnoy","ара","архангел","ars1k","BERKUT editor","бодя","corte11z","FLY","hauzy1","katatoks","казак","llmar krays","МЕТЕЛЬ","militara","monolitzov","Ockolok","пермик","phantom_editor","Rubezh","simon0","турист_037","тяпа","VORON","ZOV","zovchik16"];
+const mainName="chudnoy";
+const rest=members.filter(n=>n.toLowerCase()!==mainName).sort((a,b)=>a.localeCompare(b,"ru",{sensitivity:"base"}));
+function addMember(name,main=false){const el=document.createElement("article");el.className="member";const badge=document.createElement("span");badge.className="member-badge";badge.textContent=main?"★":name.trim().slice(0,2).toUpperCase();const box=document.createElement("div");const title=document.createElement("div");title.className="member-name";title.textContent=name;const role=document.createElement("div");role.className="member-role";role.textContent=main?"ГЛАВНЫЙ":"УЧАСТНИК";box.append(title,role);el.append(badge,box);document.getElementById("memberGrid").append(el)}
+addMember(mainName,true);rest.forEach(n=>addMember(n));
+const tracks=[["Команда БПЛА","bpla.mp3"],["Холодный нож","holodny-nozh.mp3"],["Ходящие мертвецы","mertvetsy.mp3"],["Невинная душа","nevinnaya-dusha.mp3"],["Золотой экран","zolotoy-ekran.mp3"],["Три тропы","tri-tropy.mp3"],["Волокнёная стрела","strela.mp3"]];
+tracks.forEach(([title,file],i)=>{const card=document.createElement("article");card.className="track";const icon=document.createElement("div");icon.className="track-icon";icon.textContent=String(i+1).padStart(2,"0");const info=document.createElement("div");const h=document.createElement("h3");h.textContent=title;const small=document.createElement("small");small.textContent="Автор: Чудной";const audio=document.createElement("audio");audio.controls=true;audio.preload="none";const source=document.createElement("source");source.src="music/"+file;source.type="audio/mpeg";audio.append(source);info.append(h,small,audio);card.append(icon,info);document.getElementById("musicList").append(card)});
+document.getElementById("menuBtn").addEventListener("click",()=>document.getElementById("nav").classList.toggle("open"));
+document.querySelectorAll("#nav a").forEach(a=>a.addEventListener("click",()=>document.getElementById("nav").classList.remove("open")));
 </script>
 </body>
-      </html>
+                                                                                                                                                                                                                                                                           </html>
